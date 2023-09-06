@@ -1,0 +1,49 @@
+[
+  {
+    "name": "app",
+    "image": "208644578245.dkr.ecr.ap-northeast-1.amazonaws.com/gin-basic-auth:latest",
+	"logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/ecs/gin-basic-auth",
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "production"
+      }
+    },
+    "environment": [
+      {
+        "name": "DATABASE_HOST",
+        "value": "gin-basic-auth-db.c9f8r9dnx8vw.ap-northeast-1.rds.amazonaws.com"
+      },
+      {
+        "name": "DATABASE_NAME",
+        "value": "go_database"
+      },
+      {
+        "name": "DATABASE_PASSWORD",
+        "value": "YzkqsyC.m4.bc"
+      },
+      {
+        "name": "DATABASE_USERNAME",
+        "value": "go_user"
+      },
+      {
+        "name": "TZ",
+        "value": "Japan"
+      }
+    ],
+	"portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 80
+      }
+    ],
+    "command": [
+      "/bin/sh",
+      "-c",
+      "./server"
+    ],
+    "workingDirectory": "/app",
+    "essential": true
+  }
+]

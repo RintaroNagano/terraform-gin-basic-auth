@@ -1,0 +1,35 @@
+[
+  {
+    "name": "app",
+    "image": "<ECRのエンドポイント>",
+    "environment": [
+      {
+        "name": "DATABASE_HOST",
+        "value": "<RDSのエンドポイント>"
+      },
+      {
+        "name": "DATABASE_NAME",
+        "value": "sample_app_production"
+      },
+      {
+        "name": "DATABASE_PASSWORD",
+        "value": "password"
+      },
+      {
+        "name": "DATABASE_USERNAME",
+        "value": "root"
+      },
+      {
+        "name": "TZ",
+        "value": "Japan"
+      }
+    ],
+    "command": [
+      "/bin/sh",
+      "-c",
+      "./server"
+    ],
+    "workingDirectory": "/app",
+    "essential": true
+  }
+]
